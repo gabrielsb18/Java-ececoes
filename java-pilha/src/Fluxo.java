@@ -3,11 +3,14 @@ public class Fluxo {
         System.out.println("Ini do main");
         try {
             metodo1();
-        }  catch (ArithmeticException ex){    // Excessão que quero tratar!
-            //String msg = ex.getMessage();
+        } catch (ArithmeticException | NullPointerException ex){    // Excessão que quero tratar!
+            String msg = ex.getMessage();
+            System.out.println("Exception" + msg);
+            //String msg = ex.getMessage(); //"getMessage = descobrir a mensagem original'"
             //System.out.println("ArithmeticException" + msg); 
+            ex.printStackTrace();
         }
-           
+
         System.out.println("Fim do main");
     }
     
@@ -22,11 +25,14 @@ public class Fluxo {
         for(int i = 1; i <= 5; i++) {
             System.out.println(i);
             int a = i/0;
+            Conta c = null;
+            c.deposita();
         }
-
         System.out.println("Fim do metodo2");
     }
 }
+
+//utilizamos o pipe = "|", para indicionar uma excessão a mais pro mesmo bloco;
 
 // A partir do momento que capturamos o catch, tratando nossa excessão, a maquina virtual continua seu fluxo de execução! 
 
