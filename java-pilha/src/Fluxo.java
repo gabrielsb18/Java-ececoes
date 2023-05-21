@@ -15,11 +15,34 @@ public class Fluxo {
         System.out.println("Ini do metodo2");
         for(int i = 1; i <= 5; i++) {
             System.out.println(i);
+            try {
+                int a = i/0;
+            } catch (ArithmeticException ex){
+                System.out.println("ArithmeticException");
+            } // Excessão que quero tratar!
         }
         System.out.println("Fim do metodo2");
         
     }
 }
+
+// A partir do momento que capturamos o catch, tratando nossa excessão, a maquina virtual continua seu fluxo de execução! 
+
+// Pra tratar excessões existe um código especifico, é o "try". Equanto para passar o erro que pode ocorrer utilizamos o código "catch".
+
+// O próximo passo e descobrir como podemos tratar as excessões, ou seja criar um código para resolver a "bomba", que cai na nossa "Stack", assim que é encontrado um erro, para que ela não possa "prejudicar" o nosso código por completo, no caso, ser resolvido apenas no primeiro metodo o qual ocorre o erro.
+
+//Mas como podemos sinalizar para quem chamar o método saca(), que o saque não está funcionando por um motivo específico? (alura). É aqui que entra as excessões! No nosso caso o método retorna somente "Funcionou" ou "Não funcionou", mas queremos que ele nos retorne motivos específicos quando não funcionar.
+
+// O nosso código deduz apenas um caso para a excessão ou erro ocorrer, que é o saldo insuficiente, pórem em qualquer cenário real podem existir diversos motivos para isso, pode ser o horário comercial, limite diario, banco fechado, entre outros.
+
+//As exceções são problemas que acontecem na hora de compilar o código. Considerando que existe uma variedade imensa, elas possuem nomes explicativos e, às vezes, mostram claramente o motivo de seu surgimento, facilitando a identificação delas. (alura)
+
+//Excessões fazem parte do controle do fluxo!
+
+//Situação de excessões = entender como o ocorre o erro adicionando o porque do erro ter ocorrido.
+
+//O compilador não indica todos os erros possiveis!
 
 //"Debugar" = olhar por "dentro" do sistemas ou inspecinar, isso de foma lenta! Essa função é utíl quando ocorre algum erro ou prblema e que não sabemos onde esta ocorrendo!
 
