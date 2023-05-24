@@ -3,12 +3,10 @@ public class Fluxo {
         System.out.println("Ini do main");
         try {
             metodo1();
-        } catch (ArithmeticException | NullPointerException ex){    // Excessão que quero tratar!
-            String msg = ex.getMessage(); // O metodo "getMessage" exibibi a mesnagem de erro apresentada no console, no caso 'by erro'.
+        } catch (ArithmeticException | NullPointerException | MinhaExcecao ex){    
+            String msg = ex.getMessage();
             System.out.println("Exception" + msg);
-            //String msg = ex.getMessage(); //"getMessage = descobrir a mensagem original'"
-            //System.out.println("ArithmeticException" + msg); 
-            ex.printStackTrace(); // O metodo "printStackTrace" irá exibir no console seu "rastro" de erro, e o "ex" é a sua referencia.
+            ex.printStackTrace(); 
         }
 
         System.out.println("Fim do main");
@@ -22,51 +20,20 @@ public class Fluxo {
     
     private static void metodo2() {
         System.out.println("Ini do metodo2");
+       
+        throw new MinhaExcecao(" deu muito errado!"); // Mensagem no parametro do construtor da exceção!
 
-        ArithmeticException execption = new ArithmeticException();
-
-        System.out.println("Fim do metodo2");
+        //System.out.println("Fim do metodo2");
     }
+    
 }
 
-//Através de um | (pipe) na cláusula catch, podemos capturar mais de uma exceção. Com isso, podemos ter um único bloco para tratar um ou mais exceções. (alura)
+//Não é necessário guardar a exceção em uma variável, podendo lançá-la diretamente em uma linha só, como no caso acima!
 
-//Excessões também são objetos! Podemos inclusive chamar algum método público da classe.
+//A referência exception aponta para a ArithmeticException, que está no HEAP (memória de objetos). (alura)
 
-//utilizamos o pipe = "|", para indicionar uma excessão a mais pro mesmo bloco, isso evita repetições do mesmo bloco.
+// Através do codigo "throw" de forma exemplar, dizemos para nosso código pegar o objeto criado e jogar na nossa pilha de execução!
 
-// A partir do momento que capturamos o catch, tratando nossa excessão, a maquina virtual continua seu fluxo de execução! 
+//throw = "jogar".
 
-// Pra tratar excessões existe um código especifico, é o "try". Equanto para passar o erro que pode ocorrer utilizamos o código "catch".
-
-// O próximo passo e descobrir como podemos tratar as excessões, ou seja criar um código para resolver a "bomba", que cai na nossa "Stack", assim que é encontrado um erro, para que ela não possa "prejudicar" o nosso código por completo, no caso, ser resolvido apenas no primeiro metodo o qual ocorre o erro.
-
-//Mas como podemos sinalizar para quem chamar o método saca(), que o saque não está funcionando por um motivo específico? (alura). É aqui que entra as excessões! No nosso caso o método retorna somente "Funcionou" ou "Não funcionou", mas queremos que ele nos retorne motivos específicos quando não funcionar.
-
-// O nosso código deduz apenas um caso para a excessão ou erro ocorrer, que é o saldo insuficiente, pórem em qualquer cenário real podem existir diversos motivos para isso, pode ser o horário comercial, limite diario, banco fechado, entre outros.
-
-//As exceções são problemas que acontecem na hora de compilar o código. Considerando que existe uma variedade imensa, elas possuem nomes explicativos e, às vezes, mostram claramente o motivo de seu surgimento, facilitando a identificação delas. (alura)
-
-//Excessões fazem parte do controle do fluxo!
-
-//Situação de excessões = entender como o ocorre o erro adicionando o porque do erro ter ocorrido.
-
-//O compilador não indica todos os erros possiveis!
-
-//"Debugar" = olhar por "dentro" do sistemas ou inspecinar, isso de foma lenta! Essa função é utíl quando ocorre algum erro ou prblema e que não sabemos onde esta ocorrendo!
-
-//Após o "ponto de depuração", executamos um debug ou (Debugar). 
-
-// Ao clicarmos duas vezes seguida ao lado da linha do código é mostrado um "ponto de depuração"(azul), onde sinalizamos onde queremos que o código pare de executar.(Eclipse)
-
-// Uma pilha Java faz parte da JVM e armazena os métodos que estão sendo executados. Além do bloco de código a pilha guarda as variáveis e as referências desse bloco. Assim a JVM organiza a execução e sabe exatamente qual método está sendo executado que é sempre o método no topo da pilha. A JVM também sabe quais outros precisam ser executados ainda, que são justamente os métodos abaixo. (Alura)
-
-// O JVM usa um "Stack" para saber oque está sendo executado e para organizar a execução dos métodos.
-
-// Assim que termina o main o processo encerra.
-
-// A pilha funciona em formato "cascata", primeiro executa todos os  metodos, e logo em seguida executa "de trás para frente" o restante do código.
-
-// A "pilha" se inicia no metodo main. Ela existe pra executar algo e lembrar ainda oque precisa ser organizado.
-
-//"Pilha" ou "Stack" = organiza a execução do nosso código, para lembrar oque ainda precisa ser organizado.
+//Nessa nova versão do código criamos um novo obejeto da classe ArithmeticException no metodo 2, e transformamos este objeto em uma exceção, exceção que irá jogar uma "bomba" na pilha, exibindo o erro no nosso console.

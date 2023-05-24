@@ -1,4 +1,4 @@
-public class Fluxo {
+public class FluxoComTratamento {
     public static void main(String[] args) {
         System.out.println("Ini do main");
         try {
