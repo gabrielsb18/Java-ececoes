@@ -1,4 +1,4 @@
-public class MinhaExcecao extends RuntimeException {//Criei minha propria excecao 
+public class MinhaExcecao extends Exception {//Criei minha propria excecao 
     
     public MinhaExcecao(String msg){
         super(msg);

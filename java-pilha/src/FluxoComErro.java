@@ -24,5 +24,8 @@ public class FluxoComErro {
         System.out.println("fim do metodo 2");
     }
 }
+//Um dos erros mais conhecidos é exatamente o "StackOverflowError.", fazendo referencia à página que salva nós devs :)
+
+// No nosso console foi possivel indetificar um erro, erro este que pertence a uma classe que herda da "Throwable", porém esta classe está restrita a o nossa maquina virtual e não interagimos diretamente com ela.
 
 // Nosso metodo entrou em um loop, o qual podemos ver através do console que nossa Stack ou pilha tem um limite de execução, limite este, para impedir que nossa memoria seja totalmente ocupada.
