@@ -3,7 +3,7 @@ public class Fluxo {
         System.out.println("Ini do main");
         try {
             metodo1();
-        } catch (ArithmeticException | NullPointerException | MinhaExcecao ex){    
+        } catch (Exception ex){    
             String msg = ex.getMessage();
             System.out.println("Exception" + msg);
             ex.printStackTrace(); 
@@ -25,8 +25,11 @@ public class Fluxo {
 
         //System.out.println("Fim do metodo2");
     }
-    
+
 }
+
+//StackOverflowError é um erro da máquina virtual para informar que a pilha de execução não tem mais memória.(Alura)
+
 //Devemos sinalizar a nossa exceção! Caso contrario nosso compilador não irá compilar. Outra meneira de resolver este problema é com o ""try cath" onde tratamos especificamente nossas exceções!
 
 // Precimos deixar explicito nossa exceção na assinatura do metodo! Caso contrario nossa codigo não irá compilar.
