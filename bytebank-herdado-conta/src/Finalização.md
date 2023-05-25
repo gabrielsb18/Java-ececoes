@@ -14,7 +14,7 @@ Internamente, apesar de os diferentes bancos funcionarem de formas diferentes, p
 
 Abriremos a interface Connection, com o seguinte codigo:
 
-public interface Connection extends Wrapper, AutoCloseable {"
+public interface Connection extends Wrapper, AutoCloseable "
 
 //
 

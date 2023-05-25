@@ -1,5 +1,5 @@
 public class TesteConta { 
-    public static void main (String [] args) {
+    public static void main (String [] args) throws SaldoInsucienteException{
 
         //int a = 3 ;
        // int b = a/0;
